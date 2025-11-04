@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Dédalo Industrial">
+    <meta name="keywords" content="Dédalo Industrial, Dédalo, Industrial, muebles">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dédalo Industrial</title>
+    <link rel="icon" href="img/logo pestaña.webp">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/Whatsapp.css">
+
+    <style>
+        /* Barra de filtros */
+        .filters-bar {
+            background: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+            padding: 12px 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .04);
+        }
+
+        .filters-bar .form-label {
+            font-weight: 600;
+        }
+
+        /* Badge sobre las publis */
+        .project__item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .badge-publi {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #111;
+            /* combina con tu estética negro/gris */
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: .75rem;
+            letter-spacing: .2px;
+            z-index: 2;
+        }
+
+        .badge-promo {
+            background: #d63384;
+        }
+
+        /* opcional: promos */
+        .badge-nuevo {
+            background: #0d6efd;
+        }
+
+        /* opcional: “nuevo” */
+    </style>
+
+</head>
+
+<body>
+    <!--Botón de WhatsApp Flotante-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href="https://api.whatsapp.com/send?phone=5493512632002" class="float" target="_blank" rel="noopener">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
+    <!-- Page Preloader -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__logo">
+            <a href="./index.html"><img src="img/logo pueba dedalo final.png" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__widget">
+            <span>Escribinos y respondemos tu consulta!</span>
+            <h4>+54 9 351 263-2002</h4>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="img/logo pueba dedalo final.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="./index.html">Inicio</a></li>
+                            <li class="active"><a href="./projects.html">Proyectos</a></li>
+                            <li><a href="./about.html">Sobre Nosotros</a></li>
+                            <li><a href="./contact.html">Contacto</a></li>
+                            <li><a href="./services.html">Servicios</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="header__widget">
+                        <span>Escribinos y respondemos tu consulta!</span>
+                        <h4>+54 9 351 263-2002</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <div class="breadcrumb-option spad set-bg" data-setbg="img/breadcrumb-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Nuestros Proyectos</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Project Page Section Begin -->
+    <section class="project-page spad">
+        <div class="container">
+            <!-- Filtros -->
+            <div class="filters-bar mb-4">
+                <div class="row g-3 align-items-end">
+                    <div class="col-12 col-md-6">
+                        <label class="form-label">Buscar productos</label>
+                        <input id="buscador" type="search" class="form-control"
+                            placeholder="Ej: rack, mesa, baño, exterior…">
+                    </div>
+                    <div class="col-7 col-md-4">
+                        <label class="form-label">Categoría</label>
+                        <select id="categoria" class="form-select">
+                            <option value="">Todas</option>
+                            <!-- Se rellena por JS con tus categorías -->
+                        </select>
+                    </div>
+                    <div class="col-5 col-md-2">
+                        <label class="form-label d-block">&nbsp;</label>
+                        <button id="btnLimpiar" class="btn btn-outline-dark w-100">Limpiar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="Dormitorio">
+                        <a href="./project-details-cama-flotante.html">
+                            <img src="img/project/foto_producto_cama.webp" alt="Cama Flotante LED">
+                        </a>
+                        <h4>Cama Flotante LED</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="Dormitorio">
+                        <a href="./project-details-respladar-cama.html">
+                            <img src="img/project/foto_producto_mueble_atras_cama.webp"
+                                alt="Respaldar de Cama Petiribí">
+                        </a>
+                        <h4>Respaldar de Cama Petiribí</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="Rack TV">
+                        <a href="./project-details-rack-tv.html">
+                            <img src="img/project/foto_producto_mueble_bajo_tv.webp" alt="Rack de TV Petiribí">
+                        </a>
+                        <h4>Rack de TV Petiribí</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="Deco">
+                        <a href="./project-details-revestimiento-led-tv.html">
+                            <img src="img/project/foto_producto_varillado_tv_led.webp" alt="Revestimiento LED para TV">
+                        </a>
+                        <h4>Revestimiento LED para TV</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-tocador.html">
+                            <img src="img/project/foto_producto_recibidor_zoita.webp" alt="Recibidor Zoita">
+                        </a>
+                        <h4>Recibidor en Madera Zoita y Espejo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-mueble-bajo-escalera.html">
+                            <img src="img/project/foto_producto_mueble_bajo_escalera.webp"
+                                alt="Muebles Bajo Escalera Petiribí">
+                        </a>
+                        <h4>Muebles Bajo Escalera Petiribí</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="Deco">
+                        <a href="./project-details-rack-decorativo-petiribi.html">
+                            <img src="img/project/foto_producto_mueble_elefante.webp" alt="Rack Decorativo Petiribí">
+                        </a>
+                        <h4>Rack Decorativo Petiribí</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-mueble-entrada-petiribi.html">
+                            <img src="img/project/foto_producto_mueble_cuadro_circular.webp"
+                                alt="Mueble de Entrada Petiribí">
+                        </a>
+                        <h4>Mueble de Entrada Petiribí</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-banco-campestre.html">
+                            <img src="img/project/foto_producto_silla_exterior.webp" alt="Banco Campestre">
+                        </a>
+                        <h4>Banco Campestre</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-escritorio-salon-belleza.html">
+                            <img src="img/project/foto_producto_bajomesada_mdf.webp" alt="bajo escalera Olmo Finlandés">
+                        </a>
+                        <h4>Bajo Escalera Olmo Finlandés</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-mesa-industrial-x.html">
+                            <img src="img/project/foto_producto_mesa_base_x.webp" alt="Mesa Industrial en X">
+                        </a>
+                        <h4>Mesa Industrial en X</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-mostrador-salon-belleza.html">
+                            <img src="img/project/foto_producto_mueble_varillado_blanco.webp"
+                                alt="Mostrador Salón de Belleza">
+                        </a>
+                        <h4>Mostrador Salón de Belleza(cambiar foto frente)</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-mesa-semi-recta.html">
+                            <img src="img/project/foto_producto_mesa_petiribi_patas_rectas.webp"
+                                alt="Mesa Petiribí Semi Recta">
+                        </a>
+                        <h4>sacar(cambiar por foto en casa)</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-mesa-laurel-en-v.html">
+                            <img src="img/project/foto_producto_mesa_patas_en_v.webp" alt="Mesa Laurel en V">
+                        </a>
+                        <h4>Mesa con patas en V</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-exhibidor-led.html">
+                            <img src="img/project/foto_producto_exibidor_fundas.webp"
+                                alt="Exhibidor LED con Espacio de Guardado">
+                        </a>
+                        <h4>Exhibidor LED con Espacio de Guardado</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="project-details-estanteria_zapatillas.html">
+                            <img src="img/project/foto_producto_exibidor_zapas.webp" alt="Estantería para Zapatillas">
+                        </a>
+                        <h4>Estantería para Zapatillas</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-puerta-inteligente.html">
+                            <img src="img/project/foto_producto_puerta de madera.webp" alt="Puerta Inteligente">
+                        </a>
+                        <h4>Puerta Inteligente(cambiar fotos nuevas)</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-mesa-ratona-petiribi.html">
+                            <img src="img/project/foto_producto_mesa_ratona_madera.webp" alt="Mesa Ratona Petiribí">
+                        </a>
+                        <h4>Mesa Ratona Petiribí</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-juego-banco-campestre.html">
+                            <img src="img/project/foto_producto_kit_patio.webp" alt="Juego de Banco y Mesa Campestre">
+                        </a>
+                        <h4>Juego de Banco y Mesa Campestre</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-mesa-redonda-zoita.html">
+                            <img src="img/project/foto_producto_mesa_circular_madera.webp" alt="Mesa Redonda Zoita">
+                        </a>
+                        <h4>Mesa Redonda Zoita</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-escritorio-l.html">
+                            <img src="img/project/foto_producto_escritorio_manteca.webp" alt="Escritorio en L">
+                        </a>
+                        <h4>Escritorio en L</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-exhibidor-led-blanco.html">
+                            <img src="img/project/foto_producto_exibidor_fundas_blanco.webp" alt="Exhibidor LED">
+                        </a>
+                        <h4>Exhibidor LED</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-espacio-guardado-led.html">
+                            <img src="img/project/foto_producto_biblioteca_minimalista.webp"
+                                alt="Espacio Estudio Biblioteca">
+                        </a>
+                        <h4>Espacio Estudio Biblioteca</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="./project-details-mesa-living-v.html">
+                            <img src="img/project/foto_producto_mesas_living.webp" alt="Mesa de Living en V">
+                        </a>
+                        <h4>Mesa de Living en V</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_armario_blanco.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_barillado.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_barra_madera.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_barra_movil_cava.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_barra_revestida.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_escalera_eucalipto.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_espacio_lavadero.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_espejo_blanco.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_habitacion_blanco.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_mesa_diseño_redondo.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_mesa_ratona_cuadrada.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_mesa_titus.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_rack_tv_blanco.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_rack_tv_marmol.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_ractv_marron.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_vanitory_marmol.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="project__item" data-categoria="">
+                        <a href="#">
+                            <img src="img/project/foto_producto_vanitory_moderno.webp" alt="#">
+                        </a>
+                        <h4>Proyecto Nuevo</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Project Page Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+        <div class="container">
+            <div class="footer__top">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <div class="footer__top__text">
+                            <h2>¡Nuestros productos están hechos con pasión y dedicación, listos para transformar tus
+                                espacios!</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="./index.html"><img src="img/logo pueba dedalo final.png" alt=""></a>
+                        </div>
+                        <p>Av.Japón 2100 <br />Córdoba, Argentina</p>
+                        <ul>
+                            <li>DedaloIndustrial@gmail.com</li>
+                            <li>+54 9 351 263-2002</li>
+                        </ul>
+                        <div class="footer__social">
+                            <a href="https://www.facebook.com/profile.php?id=61557555537261" target="_self"
+                                rel="noopener"><i class="fa fa-facebook"></i></a>
+                            <a href="https://wa.me/543518055318" target="_self" rel="noopener"><i
+                                    class="fa fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/dedalo_industrial/?hl=es" target="_self"
+                                rel="noopener"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Nosotros</h6>
+                        <ul>
+                            <li><a href="./about.html">Sobre Nosotros</a></li>
+                            <li><a href="./services.html">Servicios</a></li>
+                            <li><a href="./projects.html">Nuestros Trabajos</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Servicios</h6>
+                        <ul>
+                            <li><a href="./services.html">Diseño de interiores</a></li>
+                            <li><a href="./services.html">Diseños de Oficina</a></li>
+                            <li><a href="./services.html">Diseños de Exterior</a></li>
+                            <li><a href="./services.html">Diseño de muebles a medida</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__address">
+                        <h6>Donde Encontrarnos</h6>
+                        <p>Av. Japón 2100 <br />Córdoba, Argentina</p>
+                        <ul>
+                            <li>DedaloIndustrial@gmail.com</li>
+                            <li>+54 9 351 263-2002</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-lg-8 col-md-7">
+                        <div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5">
+                        <div class="copyright__widget">
+                            <a>Terms of use</a>
+                            <a>Privacy Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Js Buscador de Proyectos-->
+    <script>
+        (function () {
+            // 1) Tus categorías oficiales
+            const CATEGORIAS = [
+                "Rack TV", "Mesas", "Exterior", "Dormitorio", "Deco", "Baño"
+            ];
+
+            // 2) Mapeo heurístico por texto (por si aún no marcas data-categoria)
+            const REGLAS = [
+                { cat: "Rack TV", re: /\brack\b|\btv\b/i },
+                { cat: "Mesas", re: /\bmesa\b/i },
+                { cat: "Exterior", re: /\bexterior\b|patio|jard[ií]n|banco campestre/i },
+                { cat: "Dormitorio", re: /cama|respaldar|habitaci[oó]n/i },
+                { cat: "Deco", re: /mueble de entrada|recibidor|biblioteca|estanter[ií]a|mostrador|exhibidor|puerta|revestimiento|espejo|lavadero/i },
+                { cat: "Baño", re: /ba[ñn]o|vanitory/i }
+            ];
+
+            const $grid = $('.project-page .container .row').last(); // la grilla de cards
+            const $items = $grid.find('.project__item');
+            const $input = $('#buscador');
+            const $selCat = $('#categoria');
+            const $btnClear = $('#btnLimpiar');
+
+            // 3) Rellenar el select con tus categorías
+            CATEGORIAS.forEach(c => $selCat.append(`<option value="${c}">${c}</option>`));
+
+            // 4) Normalizar texto
+            const norm = s => (s || "").toString().toLowerCase()
+                .normalize('NFD').replace(/\p{Diacritic}/gu, '');
+
+            // 5) Detectar/inyectar categoría y badge en cada publi
+            $items.each(function () {
+                const $card = $(this);
+                const $title = $card.find('h4').first();
+                const titulo = $title.text().trim();
+
+                // a) si no trae data-categoria, intentar inferir
+                let cat = $card.attr('data-categoria');
+                if (!cat) {
+                    const hit = REGLAS.find(r => r.re.test(titulo));
+                    cat = hit ? hit.cat : "Deco"; // fallback amable (ajústalo si querés)
+                    $card.attr('data-categoria', cat);
+                }
+
+                // b) badge visible (si ya existe, no dupliques)
+                if ($card.find('.badge-publi').length === 0) {
+                    $card.prepend(`<span class="badge-publi">${cat}</span>`);
+                }
+
+                // c) opcional: promos/nuevo (marcá en HTML data-badge="Promo" o "Nuevo")
+                const extra = ($card.attr('data-badge') || "").toLowerCase();
+                if (extra === 'promo') {
+                    $card.find('.badge-publi').addClass('badge-promo').text(`${cat} · Promo`);
+                } else if (extra === 'nuevo') {
+                    $card.find('.badge-publi').addClass('badge-nuevo').text(`${cat} · Nuevo`);
+                }
+            });
+
+            // 6) Filtrado (texto + categoría)
+            const filtrar = function () {
+                const q = norm($input.val());
+                const cat = $selCat.val();
+
+                $items.each(function () {
+                    const $card = $(this);
+                    const titulo = $card.find('h4').text();
+                    const texto = norm(titulo);
+                    const catItem = $card.attr('data-categoria') || '';
+
+                    const matchTexto = !q || texto.includes(q);
+                    const matchCat = !cat || catItem === cat;
+
+                    $card.closest('.col-lg-6, .col-md-6, .col-sm-6').toggle(matchTexto && matchCat);
+                });
+            };
+
+            // 7) Debounce simple para el buscador
+            let t;
+            $input.on('input', function () {
+                clearTimeout(t);
+                t = setTimeout(filtrar, 200);
+            });
+            $selCat.on('change', filtrar);
+            $btnClear.on('click', function (e) {
+                e.preventDefault();
+                $input.val('');
+                $selCat.val('');
+                filtrar();
+            });
+
+            // 8) Primera pasada
+            filtrar();
+        })();
+    </script>
+
+</body>
+
+</html>
