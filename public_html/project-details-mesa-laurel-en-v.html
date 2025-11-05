@@ -57,7 +57,6 @@
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <li><a href="./index.html">Inicio</a></li>
-                            <li><a href="#">Tienda 🛒</a></li>
                             <li class="active" ><a href="./projects.html">Proyectos</a></li>
                             <li><a href="./about.html">Sobre Nosotros</a></li>
                             <li><a href="./contact.html">Contacto</a></li>
@@ -115,9 +114,63 @@
                             junto a la calidez de la madera de laurel, convierte cualquier ambiente en un espacio sofisticado. 🌟
                             </p>
                         </div>
-                        <div class="col-lg-12 text-center">
-                            <a href="https://wa.me/5493512632002?text=Hola%20me%20gustaría%20solicitar%20una%20cotización%20para%20la%20Mesa%20Laurel%20en%20V%20que%20vi%20en%20la%20web.%20Quisiera%20saber%20sobre%20opciones%20de%20materiales,%20precios%20y%20tiempos%20de%20fabricación.%20¡Espero%20su%20respuesta!" target="_blank" rel="noopener" class="primary-btn normal-btn">Cotiza con nosotros</a>
+                        <!-- Formulario Inicio-->
+                        <div class="project__sidebar__form mt-4 mb-3">
+                            <h5 class="mb-3">Personalizá tu pedido</h5>
+                            <form id="formMedidas" class="text-start">
+                                <div class="mt-3">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <textarea type="text" class="form-control" id="nombre"
+                                        placeholder="Ej: Valentino Fernandez" style="resize: none;"></textarea>
+                                </div>
+                                <div class="row g-2">
+                                    <div class="col-4">
+                                        <label for="ancho" class="form-label">Largo (cm)</label>
+                                        <input type="number" class="form-control" id="ancho" placeholder="Ej: 140">
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="alto" class="form-label">Ancho (cm)</label>
+                                        <input type="number" class="form-control" id="alto" placeholder="Ej: 40">
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="profundidad" class="form-label">Alto (cm)</label>
+                                        <input type="number" class="form-control" id="profundidad"
+                                            placeholder="Ej: 200">
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <label for="direccion" class="form-label">Direccion</label>
+                                    <textarea type="text" class="form-control" id="direccion" placeholder="Ej: Córdoba"
+                                        style="resize: none;"></textarea>
+                                </div>
+                                <div class="mt-3">
+                                    <label for="material" class="form-label">Material preferido</label>
+                                    <select id="material" class="form-select">
+                                        <option value="" selected disabled>Seleccioná un material</option>
+                                        <option value="Melamina 18mm">Melamina 18mm</option>
+                                        <option value="Madera Maciza">Madera Maciza</option>
+                                    </select>
+                                </div>
+                                <div class="mt-3">
+                                    <label for="comentarios" class="form-label">Detalles o comentarios</label>
+                                    <textarea id="comentarios" class="form-control" rows="2"
+                                        placeholder="Color, terminación, observaciones..."
+                                        style="resize: none;"></textarea>
+                                </div>
+                                <p class="d-block mt-2">
+                                    <a href="https://www.faplaconline.com.ar/home/c/ar-faplac" target="_blank"
+                                        class="text-decoration-underline text-primary">
+                                        Mira nuestro catálogo de opciones de colores
+                                    </a>
+                                </p>
+                                <div class="text-center mt-4">
+                                    <a id="btnCotizar" href="#" class="primary-btn normal-btn w-100">
+                                        Enviar por WhatsApp
+                                    </a>
+                                </div>
+                            </form>
                         </div>
+                        <!-- Formulario Fin -->
                     </div>
                 </div>
             </div>
@@ -203,6 +256,134 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/slick.min.js"></script>
 <script src="js/main.js"></script>
+<!-- Script de WhatsApp -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('btnCotizar');
+            if (!btn) return;
+
+            const $ = (id) => document.getElementById(id);
+
+            // === utilidades ===
+            function obtenerNombreProducto() {
+                const h2 = document.querySelector('.project__sidebar__about h2');
+                if (h2 && h2.textContent.trim()) return h2.textContent.trim();
+                return (document.title || 'Producto').trim();
+            }
+
+            function setInvalid(input, msg) {
+                if (!input) return;
+                input.classList.add('is-invalid');
+                const fb = input.parentElement.querySelector('.invalid-feedback');
+                if (fb) fb.textContent = msg || 'Campo inválido';
+            }
+
+            function clearInvalid(input) {
+                if (!input) return;
+                input.classList.remove('is-invalid');
+            }
+
+            function validarCampos() {
+                const nombre = $('nombre');
+                const ancho = $('ancho');
+                const alto = $('alto');
+                const profundidad = $('profundidad');
+                const direccion = $('direccion');
+                const material = $('material');
+                const comentarios = $('comentarios');
+
+                // limpiar estados previos
+                [nombre, ancho, alto, profundidad, direccion, material, comentarios].forEach(clearInvalid);
+
+                let ok = true;
+                const toScroll = [];
+
+                // nombre
+                if (!nombre.value.trim()) { ok = false; setInvalid(nombre, 'Ingresá tu nombre'); toScroll.push(nombre); }
+
+                // medidas (rangos sugeridos; ajustá si querés)
+                const anchoV = Number(ancho.value);
+                if (!ancho.value.trim() || !Number.isFinite(anchoV) || anchoV < 20 || anchoV > 400) {
+                    ok = false; setInvalid(ancho, 'Ancho entre 20 y 400 cm'); toScroll.push(ancho);
+                }
+
+                const altoV = Number(alto.value);
+                if (!alto.value.trim() || !Number.isFinite(altoV) || altoV < 10 || altoV > 300) {
+                    ok = false; setInvalid(alto, 'Alto entre 10 y 300 cm'); toScroll.push(alto);
+                }
+
+                const profV = Number(profundidad.value);
+                if (!profundidad.value.trim() || !Number.isFinite(profV) || profV < 10 || profV > 300) {
+                    ok = false; setInvalid(profundidad, 'Profundidad entre 10 y 300 cm'); toScroll.push(profundidad);
+                }
+
+                // dirección
+                if (!direccion.value.trim()) { ok = false; setInvalid(direccion, 'Ingresá tu ciudad o dirección'); toScroll.push(direccion); }
+
+                // material
+                if (!material.value || material.value.trim() === '') {
+                    ok = false; setInvalid(material, 'Seleccioná un material'); toScroll.push(material);
+                }
+
+                // comentarios (podés quitar este requisito si no querés forzarlo)
+                if (!comentarios.value.trim()) { ok = false; setInvalid(comentarios, 'Ingresá detalles / observaciones'); toScroll.push(comentarios); }
+
+                // scroll al primer error
+                if (!ok && toScroll.length) {
+                    toScroll[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    toScroll[0].focus({ preventScroll: true });
+                }
+
+                return ok;
+            }
+
+            function construirMensaje() {
+                const producto = obtenerNombreProducto();
+                const ancho = ($('ancho')?.value ?? '').trim();
+                const alto = ($('alto')?.value ?? '').trim();
+                const profundidad = ($('profundidad')?.value ?? '').trim();
+                const material = ($('material')?.value ?? '').trim();
+                const comentarios = ($('comentarios')?.value ?? '').trim();
+                const direccion = ($('direccion')?.value ?? '').trim();
+                const nombre = ($('nombre')?.value ?? '').trim();
+
+                return `Hola, ¿cómo están?
+                Me gustaría solicitar una cotización para el siguiente producto:
+
+                • Nombre: ${nombre}
+                • Producto: ${producto}
+                • Medidas: ${ancho} x ${alto} x ${profundidad} cm
+                • Material: ${material}
+                • Dirección/Localidad: ${direccion}
+                • Comentarios: ${comentarios}
+
+                ¿Podrían indicarme el precio estimado y opciones de entrega?
+                ¡Muchas gracias!`;
+            }
+
+            // limpiar error al escribir/cambiar
+            ['nombre', 'ancho', 'alto', 'profundidad', 'direccion', 'material', 'comentarios'].forEach(id => {
+                const el = $(id);
+                if (!el) return;
+                el.addEventListener('input', () => clearInvalid(el));
+                el.addEventListener('change', () => clearInvalid(el));
+            });
+
+            // click principal
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+
+                if (!validarCampos()) return;
+
+                const numero = '5493512632002';
+                const mensaje = construirMensaje();
+                const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+                window.open(url, '_blank');
+            });
+        });
+    </script>
 </body>
 
 </html>
