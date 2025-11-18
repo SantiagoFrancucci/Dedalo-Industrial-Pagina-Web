@@ -27,7 +27,7 @@ html{
 html,
 body {
 	height: 100%;
-	font-family: "Poppins", sans-serif;
+	font-family: "Raleway", sans-serif;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -39,8 +39,10 @@ h5,
 h6 {
 	margin: 0;
 	color: #111111;
-	font-weight: 400;
-	font-family: "Aldrich", sans-serif;
+	font-family: "Raleway", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 300;
+	font-style: normal;
 }
 
 h1 {
@@ -69,11 +71,13 @@ h6 {
 
 p {
 	font-size: 15px;
-	font-family: "Poppins", sans-serif;
+	font-family: "Raleway", sans-serif;
 	color: #707070;
-	font-weight: 400;
+	font-optical-sizing: auto;
+	font-weight: 100;
 	line-height: 26px;
 	margin: 0 0 15px 0;
+	font-style: normal;
 }
 
 img {
@@ -407,7 +411,7 @@ ol {
 
 .header__widget span {
 	font-size: 14px;
-	font-family: "Aldrich", sans-serif;
+	font-family: "Raleway", sans-serif;
 	color: #b7b7b7;
 	display: block;
 	margin-bottom: 10px;
@@ -892,7 +896,7 @@ ol {
 .testimonial__client__item h5 {
 	color: #111111;
 	font-weight: 600;
-	font-family: "Poppins", sans-serif;
+	font-family: "Raleway", sans-serif;;
 	font-size: 15px;
 	margin-bottom: 5px;
 }
@@ -1000,13 +1004,13 @@ ol {
 .team__text .team__title h5 {
 	color: #ffffff;
 	font-weight: 600;
-	font-family: "Poppins", sans-serif;
+	font-family: "Raleway", sans-serif;
 	margin-bottom: 6px;
 }
 
 .team__text .team__title span {
 	font-size: 14px;
-	color: #7e0101;
+	color: #b05d5d;
 }
 
 .team__text p {
@@ -1141,7 +1145,7 @@ ol {
 .latest__item__text h4 {
 	color: #111111;
 	font-size: 22px;
-	font-family: "Poppins", sans-serif;
+	font-family: "Raleway", sans-serif;
 	font-weight: 600;
 	line-height: 32px;
 	margin-bottom: 12px;
@@ -1361,7 +1365,7 @@ ol {
 .footer__widget h6 {
 	color: #ffffff;
 	font-weight: 600;
-	font-family: "Poppins", sans-serif;
+	font-family: "Raleway", sans-serif;
 	margin-bottom: 30px;
 }
 
@@ -1382,7 +1386,7 @@ ol {
 .footer__address h6 {
 	color: #ffffff;
 	font-weight: 600;
-	font-family: "Poppins", sans-serif;
+	font-family: "Raleway", sans-serif;
 	margin-bottom: 30px;
 }
 
@@ -1712,7 +1716,7 @@ ol {
 .blog__item h2 {
 	color: #111111;
 	font-weight: 600;
-	font-family: "Poppins", sans-serif;
+	font-family: "Raleway", sans-serif;
 	line-height: 48px;
 	margin-bottom: 30px;
 }
@@ -1761,7 +1765,7 @@ ol {
 	right: 50px;
 	bottom: 26px;
 	content: "“";
-	font-family: "Aldrich", sans-serif;
+	font-family: "Raleway", sans-serif;
 	font-size: 120px;
 	color: #ffffff;
 	opacity: 0.5;
@@ -1771,7 +1775,7 @@ ol {
 .blog__item__quote p {
 	color: #ffffff;
 	font-size: 20px;
-	font-family: "Aldrich", sans-serif;
+	font-family: "Raleway", sans-serif;
 	line-height: 32px;
 	text-transform: uppercase;
 }
